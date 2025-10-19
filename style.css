@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css');
+
+
+:root {
+    --text-color: white;
+    --bg-url: url('./assets/bg-mobile.jpg');
+    --strocke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(255, 255, 255, 0.25);
+    --hightlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url('./assets/moon-stars.svg')
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url('./assets/bg-mobile-light.jpg');
+    --strocke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.1);
+    --surface-color-hover: rgba(0, 0, 0, 0.25);
+    --hightlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url('./assets/sun.svg')
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body {
+    background: var(--bg-url) no-repeat top center/cover;
+    transition: background 0.9s;
+    
+}
+
+#container {
+    width: 360px;
+    margin: 56px auto 0px;
+    padding: 0 24px;
+}
+
+/* Profile */
+
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+}
+
+#profile a {
+    display: block;
+    text-decoration: none;
+    margin-top: 9px;
+    line-height: 24px;
+
+}
+
+/* Switch mode light and dark */
+#switch {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 64px;
+
+    display: block;
+    margin: 5px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    right: 1;
+    z-index: 1;
+    transform: translateY(-50%);
+
+    animation: slide-back 0.4s;
+}
+
+.light #switch button {
+
+    animation: slide-in 0.4s forwards;
+    /* right: 0;
+    left: initial; */
+}
+
+#switch button:hover {
+    outline: 8px solid var(--hightlight-color);
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--strocke-color);
+    backdrop-filter: blur(4px);
+    --webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px
+}
+
+/* Links */
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 24px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--strocke-color);
+    border-radius: 10px;
+
+    backdrop-filter: blur(4px);
+    --web-backdrop-filter: backdrop-filter: blur(4px);
+
+    transition: background 0.2s;
+}
+
+/* sudo-selector | pseudo-selector */
+
+ul li a:hover {
+    background-color: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/* Social links */
+
+#social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    padding: 34px 34px;
+    font-size: 24px;
+}
+
+#social-links a {
+
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+
+    transition: background 0.2s;
+    border-radius: 50%;
+
+    width: 56px;
+    height: 56px;
+}
+
+#social-links a:hover {
+    background: var(--hightlight-color);
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+@media (min-width: 700px) {
+
+    :root {
+        --bg-url: url('./assets/bg-desktop.jpg')
+    }
+
+    .light {
+        --bg-url: url('./assets/bg-desktop-light.jpg')
+    }
+
+    body {
+        height: 100vh;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
+}
